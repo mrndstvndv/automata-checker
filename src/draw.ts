@@ -11,8 +11,8 @@ export const drawArrow = (ctx: CanvasRenderingContext2D, startX: number, startY:
 }
 
 export const drawCircle = (ctx: CanvasRenderingContext2D, x: number, y: number, label: string = "") => {
+	ctx.beginPath()
 	ctx.arc(x, y, 50, 0, 2 * Math.PI)
-	ctx.stroke()
 
 	if (label != null) {
 		const textDimensions = ctx.measureText(label)
@@ -20,5 +20,5 @@ export const drawCircle = (ctx: CanvasRenderingContext2D, x: number, y: number, 
 		ctx.fillText(label, x - (textDimensions.width / 2), y + 10)
 	}
 
-	drawArrow(ctx, x + 50, y, x + 100, y)
+	ctx.stroke()
 }
